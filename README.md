@@ -1,54 +1,27 @@
-# Pokedex
+# Pokédex
 
-A simple Flask-based Python web application.
+A web app that lets you look up any Pokémon using the [PokeAPI](https://pokeapi.co/). Search by name or Pokédex number, discover a random Pokémon, and explore full evolution chains — complete with stats, type badges, abilities, shiny sprites, and Pokédex descriptions.
 
----
+## Prerequisites
 
-## Setup
+- Python 3.10+
+- pip
 
-Install the required dependencies before running the application:
+## Setup & Running
 
 ```bash
+# Install dependencies (from project root)
 pip install -r requirements.txt
-```
 
----
-
-## Running the Application
-
-Start the Flask server by running the following command in the project directory:
-
-```bash
+# Start the app (from inside pokeapp/)
 python app.py
 ```
 
-The server will start locally at:
+Then open your browser to `http://localhost:5000`.
 
-```text
-http://127.0.0.1:5000
-```
-
----
-
-## Testing Endpoints
-
-To test an endpoint, open a **separate terminal** and use `curl`:
+## Running Tests
 
 ```bash
-curl http://127.0.0.1:5000/{endpoint}
+# From inside pokeapp/
+pytest tests/ -v
 ```
-
-Replace `{endpoint}` with the endpoint you want to test.
-
-### Example
-
-```bash
-curl http://127.0.0.1:5000/hello
-```
-
----
-
-## Current Status
-
-- One endpoint is currently implemented.
-- Additional endpoints can be tested using the same curl format as they are added.
