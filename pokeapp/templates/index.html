@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokédex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-ball"></span>
+        <span class="logo-text">Pokédex</span>
+      </div>
+      <nav>
+        <button class="nav-btn active" data-view="search">Search</button>
+        <button class="nav-btn" data-view="random">Random</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ── Search View ───────────────────────────────────────────── -->
+    <section id="view-search" class="view active">
+      <div class="search-hero">
+        <h1>Find your<br><em>Pokémon</em></h1>
+        <div class="search-bar">
+          <input id="search-input" type="text" placeholder="Name or Pokédex number…" autocomplete="off" spellcheck="false" />
+          <button id="search-btn" class="btn-primary">GO</button>
+        </div>
+        <p class="hint">Try <span class="hint-chip" data-name="gengar">gengar</span>, <span class="hint-chip" data-name="mewtwo">mewtwo</span>, or <span class="hint-chip" data-name="snorlax">snorlax</span></p>
+      </div>
+
+      <div id="result-area" class="result-area hidden"></div>
+      <div id="error-msg" class="error-msg hidden"></div>
+      <div id="loader" class="loader hidden"><span></span><span></span><span></span></div>
+    </section>
+
+    <!-- ── Random View ───────────────────────────────────────────── -->
+    <section id="view-random" class="view">
+      <div class="random-hero">
+        <h1>Feeling<br><em>lucky?</em></h1>
+        <p class="sub">Discover a random Pokémon from across all generations.</p>
+        <button id="random-btn" class="btn-primary btn-large">Roll the dice</button>
+      </div>
+      <div id="random-result-area" class="result-area hidden"></div>
+      <div id="random-error-msg" class="error-msg hidden"></div>
+      <div id="random-loader" class="loader hidden"><span></span><span></span><span></span></div>
+    </section>
+  </main>
+
+  <!-- ── Pokemon Card Template ─────────────────────────────────── -->
+  <template id="card-template">
+    <article class="pokemon-card">
+      <div class="card-left">
+        <div class="sprite-wrap">
+          <img class="sprite" src="" alt="" />
+          <button class="shiny-toggle" title="Toggle shiny sprite">✦</button>
+        </div>
+        <p class="pokemon-desc"></p>
+      </div>
+
+      <div class="card-right">
+        <div class="card-header">
+          <span class="pokemon-number"></span>
+          <h2 class="pokemon-name"></h2>
+          <div class="type-badges"></div>
+        </div>
+
+        <div class="meta-row">
+          <div class="meta-item"><span class="meta-label">Height</span><span class="meta-val pokemon-height"></span></div>
+          <div class="meta-item"><span class="meta-label">Weight</span><span class="meta-val pokemon-weight"></span></div>
+          <div class="meta-item"><span class="meta-label">Base XP</span><span class="meta-val pokemon-xp"></span></div>
+        </div>
+
+        <div class="abilities-row">
+          <span class="meta-label">Abilities</span>
+          <div class="ability-list"></div>
+        </div>
+
+        <div class="stats-section">
+          <span class="meta-label">Base Stats</span>
+          <div class="stats-grid"></div>
+          <div class="stats-total">
+            <span>Total</span>
+            <span class="total-val"></span>
+          </div>
+        </div>
+
+        <button class="evo-btn btn-secondary">View Evolution Chain →</button>
+        <div class="evo-chain hidden"></div>
+      </div>
+    </article>
+  </template>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
